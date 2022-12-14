@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  k6-load-test:
+    image: grafana/k6
+    container_name: k6-load-test
+    volumes:
+      - ./samples:/scripts
+      - ./out:/out
+    command: [ "run", "--out", "csv=/out/test.csv", "/scripts/script.js" ]
